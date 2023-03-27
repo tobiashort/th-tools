@@ -22,6 +22,7 @@ function install_go_project() {
 
 install_shell_script compress-pdf compress-pdf
 install_shell_script ip-sort ipv4-sort
+install_shell_script rmn rmn
 install_shell_script video-to-gif video-to-gif
 
 install_go_project align-pattern
@@ -36,6 +37,7 @@ install_go_project jwt-decode
 install_go_project jwt-encode
 install_go_project mask-to-cidr
 install_go_project pipe-sum
+install_go_project ports-to-port-ranges
 install_go_project rfc33392unixtime
 install_go_project subnet-to-list
 install_go_project unixtime2rfc3339
