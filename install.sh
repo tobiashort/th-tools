@@ -25,8 +25,6 @@ install_shell_script ip-sort ipv4-sort
 install_shell_script rmn rmn
 install_shell_script video-to-gif video-to-gif
 
-install_go_project align-pattern
-install_go_project block-text
 install_go_project cidr-to-mask
 install_go_project ciphersuite-checker
 install_go_project git-cleaner
