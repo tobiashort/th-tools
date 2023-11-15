@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-DIR="$HOME/.local/share/thg-tools"
+DIR="/opt/thg-tools"
 BIN="$DIR/bin"
 rm -rf "$DIR"
 mkdir -p "$BIN"
