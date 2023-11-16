@@ -27,12 +27,13 @@ function install_go_project() {
 
 install_shell_script compress-pdf compress-pdf
 install_shell_script ip-sort ipv4-sort
+install_shell_script mtmp mcat mdel msto
 install_shell_script rmn rmn
 install_shell_script video-to-gif video-to-gif
-install_shell_script mtmp mcat mdel msto
 
 install_go_project cidr-to-mask
 install_go_project ciphersuite-checker
+install_go_project cutnstitch
 install_go_project git-cleaner
 install_go_project html-decode
 install_go_project html-encode
