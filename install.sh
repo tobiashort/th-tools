@@ -7,23 +7,29 @@ mkdir -p "$BIN"
 pushd "$DIR" > /dev/null
 
 function install_shell_script() {
-  git clone https://github.com/t-hg/"$1" \
-    && cp "$1/$2" "$BIN"
-  cd "$DIR"
+  repo="$1"
+  shift
+  git clone https://github.com/t-hg/"$repo" || return
+  for file in "$@"; do
+    cp "$repo/$file" "$BIN"
+  done
 }
 
 function install_go_project() {
-  git clone https://github.com/t-hg/"$1" \
-    && cd "$1" \
-    && go build \
-    && mv "$1" "$BIN"
-  cd "$DIR"
+  repo="$1"
+  file="$1"
+  git clone https://github.com/t-hg/"$repo" || return
+  pushd "$repo"
+  go build
+  mv "$file" "$BIN"
+  popd
 }
 
 install_shell_script compress-pdf compress-pdf
 install_shell_script ip-sort ipv4-sort
 install_shell_script rmn rmn
 install_shell_script video-to-gif video-to-gif
+install_shell_script mtmp mcat mdel msto
 
 install_go_project cidr-to-mask
 install_go_project ciphersuite-checker
