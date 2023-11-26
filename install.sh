@@ -45,6 +45,7 @@ install_go_project pipe-sum
 install_go_project ports-to-port-ranges
 install_go_project rfc33392unixtime
 install_go_project subnet-to-list
+install_go_project uniqplot
 install_go_project unixtime2rfc3339
 install_go_project url-encode-all
 install_go_project url-path-decode
