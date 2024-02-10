@@ -1,5 +1,10 @@
 #!/usr/bin/env bash
 
+if [ "$EUID" -ne 0 ]
+    then echo "Please run as root"
+    exit
+fi
+
 DIR="/opt/thg-tools"
 BIN="$DIR/bin"
 rm -rf "$DIR"
@@ -7,28 +12,29 @@ mkdir -p "$BIN"
 pushd "$DIR" > /dev/null
 
 function install_shell_script() {
-  repo="$1"
-  shift
-  git clone https://github.com/t-hg/"$repo" || return
-  for file in "$@"; do
-    cp "$repo/$file" "$BIN"
-  done
+    repo="$1"
+    shift
+    git clone https://github.com/t-hg/"$repo" || return
+    for file in "$@"; do
+        cp "$repo/$file" "$BIN"
+    done
 }
 
 function install_go_project() {
-  repo="$1"
-  file="$1"
-  git clone https://github.com/t-hg/"$repo" || return
-  pushd "$repo"
-  go build
-  mv "$file" "$BIN"
-  popd
+    repo="$1"
+    file="$1"
+    git clone https://github.com/t-hg/"$repo" || return
+    pushd "$repo"
+    go build
+    mv "$file" "$BIN"
+    popd
 }
 
 install_shell_script compress-pdf compress-pdf
 install_shell_script ip-sort ipv4-sort
 install_shell_script mtmp mcat mdel msto
 install_shell_script rmn rmn
+install_shell_script sync-progress sync-progress
 install_shell_script video-to-gif video-to-gif
 
 install_go_project cidr-to-mask
