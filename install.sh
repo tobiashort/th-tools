@@ -7,6 +7,7 @@ fi
 
 DIR="/opt/thg-tools"
 BIN="$DIR/bin"
+BIN_PREFIX="thg"
 rm -rf "$DIR"
 mkdir -p "$BIN"
 pushd "$DIR" > /dev/null
@@ -16,7 +17,7 @@ function install_shell_script() {
     shift
     git clone https://github.com/t-hg/"$repo" || return
     for file in "$@"; do
-        cp "$repo/$file" "$BIN"
+		ln -s "$(pwd)/$repo/$file" "$BIN/$BIN_PREFIX-$file"
     done
 }
 
@@ -26,7 +27,7 @@ function install_go_project() {
     git clone https://github.com/t-hg/"$repo" || return
     pushd "$repo"
     go build
-    mv "$file" "$BIN"
+	ln -s "$(pwd)/$file" "$BIN/$BIN_PREFIX-$file"
     popd
 }
 
@@ -50,6 +51,7 @@ install_go_project mask-to-cidr
 install_go_project pipe-sum
 install_go_project ports-to-port-ranges
 install_go_project rfc33392unixtime
+install_go_project stopwatch
 install_go_project subnet-to-list
 install_go_project syncp
 install_go_project uniqplot
