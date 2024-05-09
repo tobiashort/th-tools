@@ -37,6 +37,7 @@ install_shell_script mtmp mcat mdel msto
 install_shell_script rmn rmn
 install_shell_script video-to-gif video-to-gif
 
+install_go_project bin2hex
 install_go_project cidr-to-mask
 install_go_project ciphersuite-checker
 install_go_project cutnstitch
