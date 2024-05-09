@@ -44,6 +44,7 @@ install_go_project cutnstitch
 install_go_project digitalwatch
 install_go_project file-transfer-over-powershell
 install_go_project git-cleaner
+install_go_project hex2bin
 install_go_project html-decode
 install_go_project html-encode
 install_go_project jwk-rsa-to-der
