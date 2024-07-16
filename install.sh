@@ -40,6 +40,7 @@ install_shell_script video-to-gif video-to-gif
 install_go_project bin2hex
 install_go_project cidr-to-mask
 install_go_project ciphersuite-checker
+install_go_project cols
 install_go_project cutnstitch
 install_go_project digitalwatch
 install_go_project file-transfer-over-powershell
