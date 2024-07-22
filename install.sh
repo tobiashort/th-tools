@@ -54,6 +54,8 @@ install_go_project jwt-encode
 install_go_project mask-to-cidr
 install_go_project pipe-sum
 install_go_project ports-to-port-ranges
+install_go_project raw-deflate
+install_go_project raw-inflate
 install_go_project rfc33392unixtime
 install_go_project stopwatch
 install_go_project subnet-to-list
