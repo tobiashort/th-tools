@@ -9,6 +9,8 @@ DIR="/opt/thg-tools"
 BIN="$DIR/bin"
 BIN_PREFIX="thg"
 rm -rf "$DIR"
+rm -rf "$BIN"
+mkdir -p "$DIR"
 mkdir -p "$BIN"
 pushd "$DIR" > /dev/null
 
@@ -43,6 +45,7 @@ install_go_project ciphersuite-checker
 install_go_project cols
 install_go_project cutnstitch
 install_go_project digitalwatch
+install_go_project ellipsis
 install_go_project file-transfer-over-powershell
 install_go_project git-cleaner
 install_go_project hex2bin
@@ -71,6 +74,6 @@ install_go_project url-query-encode
 popd > /dev/null
 echo
 echo "---"
-echo "Add line to .bashrc"
-echo "export PATH=\$PATH:$BIN"
+echo "Add line to .bashrc/.zshrc"
+echo "export PATH=$BIN:\$PATH"
 echo "---"
