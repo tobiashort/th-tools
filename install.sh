@@ -1,13 +1,15 @@
 #!/usr/bin/env bash
 
+set -e
+
 if [ "$EUID" -ne 0 ]
     then echo "Please run as root"
     exit
 fi
 
-DIR="/opt/thg-tools"
+DIR="/opt/th-tools"
 BIN="$DIR/bin"
-BIN_PREFIX="thg"
+BIN_PREFIX="th"
 rm -rf "$DIR"
 rm -rf "$BIN"
 mkdir -p "$DIR"
@@ -35,7 +37,6 @@ function install_go_project() {
 
 install_shell_script compress-pdf compress-pdf
 install_shell_script ip-sort ipv4-sort
-install_shell_script mtmp mcat mdel msto
 install_shell_script rmn rmn
 install_shell_script video-to-gif video-to-gif
 
@@ -44,7 +45,6 @@ install_go_project cidr-to-mask
 install_go_project ciphersuite-checker
 install_go_project cols
 install_go_project cutnstitch
-install_go_project digitalwatch
 install_go_project ellipsis
 install_go_project file-transfer-over-powershell
 install_go_project git-cleaner
@@ -60,9 +60,7 @@ install_go_project ports-to-port-ranges
 install_go_project raw-deflate
 install_go_project raw-inflate
 install_go_project rfc33392unixtime
-install_go_project stopwatch
 install_go_project subnet-to-list
-install_go_project syncp
 install_go_project uniqplot
 install_go_project unixtime2rfc3339
 install_go_project url-encode-all
