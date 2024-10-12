@@ -19,7 +19,7 @@ pushd "$DIR" > /dev/null
 function install_shell_script() {
     repo="$1"
     shift
-    git clone https://github.com/t-hg/"$repo" || return
+    git clone https://github.com/tobiashort/"$repo" || return
     for file in "$@"; do
 		ln -s "$(pwd)/$repo/$file" "$BIN/$BIN_PREFIX-$file"
     done
@@ -28,7 +28,7 @@ function install_shell_script() {
 function install_go_project() {
     repo="$1"
     file="$1"
-    git clone https://github.com/t-hg/"$repo" || return
+    git clone https://github.com/tobiashort/"$repo" || return
     pushd "$repo"
     go build
 	ln -s "$(pwd)/$file" "$BIN/$BIN_PREFIX-$file"
