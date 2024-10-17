@@ -36,7 +36,6 @@ function install_go_project() {
 }
 
 install_shell_script compress-pdf compress-pdf
-install_shell_script ip-sort ipv4-sort
 install_shell_script rmn rmn
 install_shell_script video-to-gif video-to-gif
 
@@ -52,6 +51,7 @@ install_go_project git-cleaner
 install_go_project hex2bin
 install_go_project html-decode
 install_go_project html-encode
+install_go_project ip-sort
 install_go_project jwk-rsa-to-der
 install_go_project jwt-decode
 install_go_project jwt-encode
