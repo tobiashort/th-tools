@@ -55,6 +55,7 @@ install_go_project html-encode
 install_go_project jwk-rsa-to-der
 install_go_project jwt-decode
 install_go_project jwt-encode
+install_go_project len-sort
 install_go_project line
 install_go_project mask-to-cidr
 install_go_project pipe-sum
