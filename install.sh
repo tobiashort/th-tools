@@ -16,15 +16,6 @@ mkdir -p "$DIR"
 mkdir -p "$BIN"
 pushd "$DIR" > /dev/null
 
-function install_shell_script() {
-    repo="$1"
-    shift
-    git clone https://github.com/tobiashort/"$repo" || return
-    for file in "$@"; do
-		ln -s "$(pwd)/$repo/$file" "$BIN/$BIN_PREFIX-$file"
-    done
-}
-
 function install_go_project() {
     repo="$1"
     file="$1"
@@ -34,10 +25,6 @@ function install_go_project() {
 	ln -s "$(pwd)/$file" "$BIN/$BIN_PREFIX-$file"
     popd
 }
-
-install_shell_script compress-pdf compress-pdf
-install_shell_script rmn rmn
-install_shell_script video-to-gif video-to-gif
 
 install_go_project bin2hex
 install_go_project cat
