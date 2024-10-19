@@ -3,27 +3,61 @@
 set -e
 
 if [ "$EUID" -ne 0 ]
-    then echo "Please run as root"
+    then echo "Please run as root."
     exit
 fi
 
-DIR="/opt/th-tools"
-BIN="$DIR/bin"
-BIN_PREFIX="th"
-rm -rf "$DIR"
-rm -rf "$BIN"
-mkdir -p "$DIR"
+CLR_WHITE_ON_RED='\033[1;37m\033[41m'
+CLR_BLACK_ON_GREEN='\033[0;30m\033[42m'
+CLR_RESET='\033[0m'
+
+LOG="/tmp/th-tools"
+rm -rf "$LOG"
+mkdir -p "$LOG"
+
+INST="/opt/th-tools"
+BIN="$INST/bin"
+rm -rf "$INST"
 mkdir -p "$BIN"
-pushd "$DIR" > /dev/null
+pushd "$INST" > /dev/null
+
+BIN_PREFIX="th"
+
+function handle_tool_error() {
+    tool="$1"
+    echo -ne "\r["
+    echo -ne "$CLR_WHITE_ON_RED"
+    echo -n "ERR "
+    echo -ne "$CLR_RESET"
+    echo "] $tool"
+}
 
 function install_go_project() {
-    repo="$1"
-    file="$1"
-    git clone https://github.com/tobiashort/"$repo" || return
-    pushd "$repo"
-    go build
-	ln -s "$(pwd)/$file" "$BIN/$BIN_PREFIX-$file"
-    popd
+    tool="$1"
+    echo -n "[....] $tool "
+    set +e
+    GIT_TERMINAL_PROMPT=0 git clone https://github.com/tobiashort/"$tool" > "$LOG/$tool.log" 2>&1
+    if [ "$?" != "0" ]; then
+        handle_tool_error "$tool"
+        return
+    fi
+    set -e
+    pushd "$tool" > /dev/null
+    set +e
+    go build > "$LOG/$tool.log" 2>&1
+    if [ "$?" != "0" ]; then
+        handle_tool_error "$tool"
+        popd > /dev/null
+        return
+    fi
+    set -e
+    ln -s "$(pwd)/$tool" "$BIN/$BIN_PREFIX-$tool"
+    popd > /dev/null
+    echo -ne "\r["
+    echo -ne "$CLR_BLACK_ON_GREEN"
+    echo -n "DONE"
+    echo -ne "$CLR_RESET"
+    echo "] $tool"
 }
 
 install_go_project bin2hex
@@ -60,8 +94,8 @@ install_go_project url-query-decode
 install_go_project url-query-encode
 
 popd > /dev/null
-echo
+
 echo "---"
-echo "Add line to .bashrc/.zshrc"
-echo "export PATH=$BIN:\$PATH"
+echo "Logs:     $LOG"
+echo "Binaries: $BIN"
 echo "---"
