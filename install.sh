@@ -23,11 +23,20 @@ pushd "$INST" > /dev/null
 
 BIN_PREFIX="th"
 
-function handle_tool_error() {
+function install_error() {
     tool="$1"
     echo -ne "\r["
     echo -ne "$CLR_WHITE_ON_RED"
     echo -n "ERR "
+    echo -ne "$CLR_RESET"
+    echo "] $tool"
+}
+
+function install_success() {
+    tool="$1"
+    echo -ne "\r["
+    echo -ne "$CLR_BLACK_ON_GREEN"
+    echo -n "DONE"
     echo -ne "$CLR_RESET"
     echo "] $tool"
 }
@@ -38,7 +47,7 @@ function install_go_project() {
     set +e
     GIT_TERMINAL_PROMPT=0 git clone https://github.com/tobiashort/"$tool" > "$LOG/$tool.log" 2>&1
     if [ "$?" != "0" ]; then
-        handle_tool_error "$tool"
+        install_error "$tool"
         return
     fi
     set -e
@@ -46,18 +55,14 @@ function install_go_project() {
     set +e
     go build > "$LOG/$tool.log" 2>&1
     if [ "$?" != "0" ]; then
-        handle_tool_error "$tool"
+        install_error "$tool"
         popd > /dev/null
         return
     fi
     set -e
     ln -s "$(pwd)/$tool" "$BIN/$BIN_PREFIX-$tool"
     popd > /dev/null
-    echo -ne "\r["
-    echo -ne "$CLR_BLACK_ON_GREEN"
-    echo -n "DONE"
-    echo -ne "$CLR_RESET"
-    echo "] $tool"
+    install_success "$tool"
 }
 
 install_go_project bin2hex
