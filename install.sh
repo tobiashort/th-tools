@@ -65,6 +65,7 @@ function install_go_project() {
     install_success "$tool"
 }
 
+install_go_project base64
 install_go_project bin2hex
 install_go_project cat
 install_go_project cidr-to-mask
