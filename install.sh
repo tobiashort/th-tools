@@ -66,7 +66,6 @@ function install_go_project() {
 }
 
 install_go_project base64
-install_go_project bin2hex
 install_go_project cat
 install_go_project cidr-to-mask
 install_go_project ciphersuite-checker
@@ -75,7 +74,6 @@ install_go_project cutnstitch
 install_go_project ellipsis
 install_go_project file-transfer-over-powershell
 install_go_project git-cleaner
-install_go_project hex2bin
 install_go_project html-decode
 install_go_project html-encode
 install_go_project ip-sort
