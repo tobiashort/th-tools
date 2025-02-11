@@ -77,6 +77,7 @@ install_go_project git-cleaner
 install_go_project html-decode
 install_go_project html-encode
 install_go_project ip-sort
+install_go_project jsonfmt
 install_go_project jwk-rsa-to-der
 install_go_project jwt-decode
 install_go_project jwt-encode
