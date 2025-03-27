@@ -73,6 +73,7 @@ install_go_project cols
 install_go_project cutnstitch
 install_go_project ellipsis
 install_go_project file-transfer-over-powershell
+install_go_project garlic
 install_go_project git-cleaner
 install_go_project html-decode
 install_go_project html-encode
