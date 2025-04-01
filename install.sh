@@ -90,6 +90,7 @@ install_go_project ports-to-port-ranges
 install_go_project raw-deflate
 install_go_project raw-inflate
 install_go_project rfc33392unixtime
+install_go_project riplace
 install_go_project subnet-to-list
 install_go_project uniqplot
 install_go_project unixtime2rfc3339
