@@ -66,7 +66,6 @@ function install_go_project() {
 }
 
 install_go_project base64
-install_go_project cat
 install_go_project cidr-to-mask
 install_go_project ciphersuite-checker
 install_go_project cols
@@ -83,7 +82,6 @@ install_go_project jwk-rsa-to-der
 install_go_project jwt-decode
 install_go_project jwt-encode
 install_go_project len-sort
-install_go_project line
 install_go_project mask-to-cidr
 install_go_project pipe-sum
 install_go_project ports-to-port-ranges
