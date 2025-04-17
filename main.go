@@ -6,9 +6,8 @@ import (
 	"os"
 	"os/exec"
 	"path/filepath"
-	"sync"
 
-	"github.com/tobiashort/cfmt"
+	"github.com/tobiashort/worker"
 )
 
 var tools = []string{
@@ -93,23 +92,24 @@ func main() {
 	must(os.RemoveAll(installDir))
 	must(os.MkdirAll(binDir, 0755))
 
+	pool := worker.NewPool(5)
 	var hasErrors bool
-	wg := sync.WaitGroup{}
-	wg.Add(len(tools))
 	for _, tool := range tools {
+		worker := pool.GetWorker()
+		worker.Printf(tool)
 		go func() {
 			err := installTool(tool)
 			if err == nil {
-				cfmt.Println("[#g{DONE}]", tool)
+				worker.Logf("[#g{DONE}] %s", tool)
 			} else {
 				hasErrors = true
-				cfmt.Println("[#r{ERROR}]", tool)
-				fmt.Println(err)
+				worker.Logf("[#r{ERROR}] %s", tool)
+				worker.Logf("%v", err)
 			}
-			wg.Done()
+			worker.Done()
 		}()
 	}
-	wg.Wait()
+	pool.Wait()
 	if hasErrors {
 		fmt.Println("Oh no! Some tools were not installed successfully.")
 		fmt.Println("Check the logs for additional details")
