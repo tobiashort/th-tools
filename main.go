@@ -72,7 +72,7 @@ func installTool(tool string) error {
 		return errors.New(string(out))
 	}
 
-	cmd = exec.Command("go", "run", "build/build.go")
+	cmd = exec.Command("go", "run", "./build")
 	cmd.Dir = toolDir
 	out, err = cmd.CombinedOutput()
 	if err != nil {
