@@ -11,6 +11,7 @@ import (
 )
 
 var tools = []string{
+	"ascii-chars",
 	"base64",
 	"cidr-to-mask",
 	"ciphersuite-checker",
