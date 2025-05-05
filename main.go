@@ -18,6 +18,7 @@ var tools = []string{
 	"cutnstitch",
 	"ellipsis",
 	"file-transfer-over-powershell",
+	"from-hex",
 	"garlic",
 	"git-cleaner",
 	"html-decode",
