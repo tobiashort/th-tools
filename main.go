@@ -13,6 +13,7 @@ import (
 var tools = []string{
 	"ascii-chars",
 	"append",
+	"appendnl",
 	"base64",
 	"cidr-to-mask",
 	"ciphersuite-checker",
