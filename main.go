@@ -12,6 +12,7 @@ import (
 
 var tools = []string{
 	"ascii-chars",
+	"append",
 	"base64",
 	"cidr-to-mask",
 	"ciphersuite-checker",
@@ -33,6 +34,7 @@ var tools = []string{
 	"mask-to-cidr",
 	"pipe-sum",
 	"ports-to-port-ranges",
+	"prepend",
 	"raw-deflate",
 	"raw-inflate",
 	"rfc33392unixtime",
