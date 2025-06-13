@@ -36,6 +36,7 @@ var tools = []string{
 	"pipe-sum",
 	"ports-to-port-ranges",
 	"prepend",
+	"rand-string",
 	"raw-deflate",
 	"raw-inflate",
 	"rfc33392unixtime",
