@@ -21,6 +21,7 @@ var tools = []string{
 	"cutnstitch",
 	"ellipsis",
 	"file-transfer-over-powershell",
+	"files-by-ext",
 	"from-hex",
 	"garlic",
 	"git-cleaner",
