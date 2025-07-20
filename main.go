@@ -27,7 +27,7 @@ var tools = []string{
 	"html-decode",
 	"html-encode",
 	"ip-sort",
-	"jsonfmt",
+	"json-fmt",
 	"jwk-rsa-to-der",
 	"jwt-decode",
 	"jwt-encode",
