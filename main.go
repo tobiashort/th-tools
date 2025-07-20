@@ -11,7 +11,6 @@ import (
 )
 
 var tools = []string{
-	"ascii-chars",
 	"append",
 	"appendnl",
 	"base64",
