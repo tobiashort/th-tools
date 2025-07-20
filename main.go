@@ -12,7 +12,7 @@ import (
 
 var tools = []string{
 	"append",
-	"appendnl",
+	"append-nl",
 	"base64",
 	"cidr-to-mask",
 	"ciphersuite-checker",
