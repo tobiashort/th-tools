@@ -19,6 +19,7 @@ var tools = []string{
 	"cols",
 	"cutnstitch",
 	"ellipsis",
+	"ends-with",
 	"file-transfer-over-powershell",
 	"files-by-ext",
 	"from-hex",
