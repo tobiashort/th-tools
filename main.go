@@ -43,6 +43,7 @@ var tools = []string{
 	"rfc33392unixtime",
 	"riplace",
 	"replace-all",
+	"starts-with",
 	"subnet-to-list",
 	"uniqplot",
 	"unixtime2rfc3339",
