@@ -17,6 +17,7 @@ var tools = []string{
 	"cidr-to-mask",
 	"ciphersuite-checker",
 	"cols",
+	"contains",
 	"cutnstitch",
 	"ellipsis",
 	"ends-with",
